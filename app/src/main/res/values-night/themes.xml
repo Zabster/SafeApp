@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SafePassApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_light</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue_dark_secondary</item>
+        <item name="colorSecondaryVariant">@color/blue_dark_secondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="textColorPrimary">@color/text_color_night</item>
+        <item name="textColorSecondary">@color/text_color_secondary_night</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?colorOnPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Custom.BottomSheetDialog</item>
+    </style>
+
+    <style name="SplashTheme" parent="FullScreenTheme">
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
+    <style name="FullScreenTheme" parent="Theme.SafePassApp">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dataListFragment">
+
+    <fragment
+        android:id="@+id/dataListFragment"
+        android:name="ru.zabster.safepassapp.screens.fragments.data_list.presentation.DataListFragment"
+        android:label="DataListFragment"
+        tools:layout="@layout/fragment_data_list">
+        <action
+            android:id="@+id/action_dataListFragment_to_createDataFragment"
+            app:destination="@id/createDataFragment" />
+        <action
+            android:id="@+id/action_dataListFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createDataFragment"
+        android:name="ru.zabster.safepassapp.screens.fragments.new_data.presentation.CreateDataFragment"
+        android:label="CreateDataFragment"
+        tools:layout="@layout/fragment_new_data">
+        <argument
+            android:name="credential"
+            app:argType="ru.zabster.safepassapp.screens.fragments.data_list.data.CredentialData"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ru.zabster.safepassapp.screens.fragments.settings.presentation.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+</navigation>

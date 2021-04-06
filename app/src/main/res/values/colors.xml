@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color_day">#000000</color>
+    <color name="text_color_secondary_day">#404040</color>
+    <color name="text_color_night">#FFFFFF</color>
+    <color name="text_color_secondary_night">#808080</color>
+
+    <color name="blue_secondary">#90caf9</color>
+    <color name="blue_dark_secondary">#5d99c6</color>
+    <color name="blue_light_secondary">#c3fdff</color>
+    <color name="blue">#42a5f5</color>
+    <color name="blue_dark">#0077c2</color>
+    <color name="blue_light">#80d6ff</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

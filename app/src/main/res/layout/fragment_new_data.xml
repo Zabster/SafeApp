@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ru.zabster.safepassapp.screens.fragments.new_data.presentation.CreateDataViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/new_credential_data_screen_title"
+            app:titleTextAppearance="@style/TextStyle.BaseText.Title" />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            boolVisible="@{vm.loadingState}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/saveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/credTitle"
+                    style="@style/TextStyle.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_base_size"
+                    android:layout_marginTop="@dimen/margin_base_size"
+                    android:layout_marginBottom="@dimen/margin_small_size"
+                    android:hint="@string/new_credential_data_title_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextStyle.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="@{!vm.loadingState}"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:nextFocusForward="@id/credDesc" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/credDesc"
+                    style="@style/TextStyle.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_base_size"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:layout_marginBottom="@dimen/margin_small_size"
+                    android:hint="@string/new_credential_data_desc_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextStyle.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="@{!vm.loadingState}"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="5"
+                        android:minLines="3"
+                        android:nextFocusForward="@id/credDesc" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/credPass"
+                    style="@style/TextStyle.EditText.PasswordType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_base_size"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:layout_marginBottom="@dimen/margin_small_size"
+                    android:hint="@string/new_credential_data_pass_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextStyle.EditText.PasswordType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="@{!vm.loadingState &amp;&amp; !vm.passLoadingState}" />
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        boolVisible="@{vm.passLoadingState}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:indeterminate="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/categorySpinner"
+                    style="@style/TextStyle.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_base_size"
+                    android:layout_marginTop="@dimen/margin_small_size"
+                    android:layout_marginBottom="@dimen/margin_base_size">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextStyle.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_arrow_drop_down"
+                        android:enabled="@{!vm.loadingState}"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/new_credential_data_category_hint"
+                        android:inputType="none"
+                        android:text="@{vm.chosenCategoryText}"
+                        tools:text="@string/new_credential_data_category_base_text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            style="@style/ButtonStyle.BaseButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_base_size"
+            android:layout_marginEnd="@dimen/margin_base_size"
+            android:layout_marginBottom="@dimen/margin_base_size"
+            android:enabled="@{!vm.loadingState &amp;&amp; !vm.passLoadingState}"
+            android:text="@string/new_credential_data_save_btn_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

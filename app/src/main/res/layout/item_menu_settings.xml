@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuTitle"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/padding_base_size">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{menuTitle}"
+            app:drawableEndCompat="@drawable/ic_navigate_next"
+            tools:text="@tools:sample/cities" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_small_size" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_layout_height"
+            android:layout_marginEnd="@dimen/margin_big_size"
+            android:background="?attr/dividerHorizontal" />
+
+    </LinearLayout>
+</layout>
